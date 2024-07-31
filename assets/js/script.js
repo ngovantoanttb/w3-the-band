@@ -27,4 +27,46 @@ modalContainer.addEventListener('click', function (event) {
     event.stopPropagation()
 })
 
+// xu ly Menu
+var header = document.getElementById('header')
+var mobileMenu = document.getElementById('mobile-menu')
+var headerHeight = header.clientHeight;
+
+
+mobileMenu.onclick = function (){
+    // Kiem tra thuoc tinh height cua header
+    var isClosed = header.clientHeight === headerHeight;
+    if (isClosed) {
+        header.style.height = 'auto';
+    }
+    else {
+        header.style.height = null;
+    }
+}
+
+// Lang nghe su kien cua menu va dong menu
+
+var menuItems = document.querySelectorAll('#nav li a[href*="#"]')
+for (var i = 0; i < menuItems.length; i++) {
+    var menuItem = menuItems[i];
+    
+    
+    menuItem.onclick = function (event) {
+
+        // kiem tra the lien ke va co phai subnav khong
+        var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav')
+
+        if (isParentMenu){
+           
+            event.preventDefault();
+
+            
+        }
+        else {
+             // An menu
+            header.style.height = null;
+        }
+    }
+        
+}
 

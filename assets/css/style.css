@@ -5,9 +5,16 @@
     
 }
 
+body::-webkit-scrollbar {
+    width: 0px;  /* Đặt chiều rộng của thanh cuộn về 0 */
+    background: transparent;  /* Đặt nền thanh cuộn trong suốt nếu có */
+}
+
 html {
     scroll-behavior: smooth;
+    overflow: auto;
 }
+
 
 /* Common */
 .clear {
@@ -24,7 +31,6 @@ html {
 .row {
     margin-left: -8px;
     margin-right: -8px;
-
 }
 
 .row::after {
@@ -56,6 +62,10 @@ html {
 }
 .mt-16 {
     margin-top: 16px !important;
+}
+
+.mt-32 {
+    margin-top: 32px !important;    
 }
 
 .btn {
@@ -91,6 +101,7 @@ html {
     left: 0;
     right: 0;
     z-index: 1;
+    
 }
 
 #nav {
@@ -130,7 +141,7 @@ html {
     background-color: rgb(224, 224, 224);
 }
 
-#header .subnav{
+#nav .subnav{
     display: none;
     position: absolute;
     top: 100%;
@@ -150,16 +161,37 @@ html {
     font-size: 14px;
 }
 
-#header .search-btn {
-    float: right;
-    padding: 0 21px;
-    cursor: pointer;
-}
-#header .search-btn:hover {
-    background-color: #f44336;
+#header .menu-mobile-btn {
+    top: 0;
+    right: 0;
+    position: absolute;
+    display: none;
 }
 
-#header .search-icon {
+#header .search-btn ,
+#header .menu-mobile-btn {
+    float: right;
+    padding: 0 21px;
+    top: 0;
+    right: 0;
+    position: absolute;
+
+}
+
+#header .search-btn:hover {
+    background-color: #f44336;
+    cursor: pointer;
+}
+
+#header .menu-mobile-btn:hover {
+    background-color: #ccc;
+}
+#header .menu-mobile-btn:hover .menu-icon{
+    color: #000;
+
+}
+#header .search-icon ,
+#header .menu-icon {
     color: white;
     font-size: 16px;
     line-height: 46px;
@@ -186,11 +218,13 @@ html {
 .text-heading {
     font-weight: 500;
     font-size: 24px;
+    text-shadow: 0 0 1px #000000;
 }
 
 .text-description {
     font-size: 15px;
     margin-top: 25px;
+    text-shadow: 0 0 1px #000000;
 }
 
 
@@ -199,6 +233,7 @@ html {
     font-size: 30px;
     font-weight: 500;
     letter-spacing: 4px;
+
 }
 
 .section-sub-heading {
@@ -225,10 +260,8 @@ html {
 }
 
 .members-list{
-    margin-top: 47px;
+    margin-top: 32px;
 }
-
-
 
 .member-name{
     font-size: 15px;
@@ -243,6 +276,7 @@ html {
 .tour-section {
     background-color: #000;
 }
+
 .tickets-list {
     background-color: #fff;
     margin-top: 40px;
@@ -275,7 +309,7 @@ html {
 }
 
 .places-list {
-    margin-top: 32px;
+    margin-top: 16px;
 }
 
 .place-img {
@@ -410,6 +444,15 @@ html {
     line-height: 1.5;
 }
 
+.contact-info a {
+    color: rgb(0, 0, 255);
+    opacity: 0.7;
+}
+
+.contact-info a:hover {
+    opacity: 1;
+}
+
 .contact-info i[class*="ti-"] {
     width: 30px;
     display: inline-block;
@@ -460,4 +503,3 @@ html {
 .copyright a:hover {
     color: #afafafc2;
 }
-
